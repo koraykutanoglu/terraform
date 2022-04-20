@@ -1,7 +1,7 @@
 // Configure the Google Cloud provider
 provider "google" {
  credentials = file("key.json")
- project     = "secops-343615"
+ project     = "stone-climate-347808"
  region      = "us-central1"
 }
 
@@ -9,6 +9,7 @@ provider "google" {
 resource "random_id" "instance_id" {
  byte_length = 8
 }
+
 
 // A single Compute Engine instance
 resource "google_compute_instance" "default" {
