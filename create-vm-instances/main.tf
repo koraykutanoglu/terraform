@@ -18,6 +18,7 @@ resource "google_compute_instance" "default" {
  zone         = "us-central1-a"
 
  boot_disk {
+     device_name = "ekdisk"
    initialize_params {
      image = "ubuntu-os-cloud/ubuntu-minimal-2004-lts"
      size  = "20"
@@ -29,9 +30,10 @@ resource "google_compute_instance" "default" {
  metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync"
 
  network_interface {
-   network = "default"
-
+   network     = "default"
+   network_ip  = "10.128.0.23"
    access_config {
+     network_tier = "STANDARD"
      // Include this section to give the VM an external ip address
    }
  }
