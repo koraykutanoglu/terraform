@@ -33,6 +33,10 @@ resource "google_compute_instance" "default" {
    network     = "default"
    network_ip  = "10.128.0.23"
    access_config {
+    
+  metadata = {
+    foo = "bar"
+  }
      network_tier = "STANDARD"
      // Include this section to give the VM an external ip address
    }
